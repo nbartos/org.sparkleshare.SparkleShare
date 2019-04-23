@@ -41,9 +41,8 @@ modules:
     - name: git
       sources: 
           - type: git
-            tag: v2.19.1-2
+            tag: v2.17.0
             url: 'https://github.com/desktop/dugite-native'
-            commit: d433cbfa6c99d18d54aa7b9b3c7ba15a03960da4
       buildsystem: simple
       build-commands:
           - ./script/build-ubuntu.sh /run/build/git/git /run/build/git
@@ -53,8 +52,8 @@ modules:
     - name: git-lfs
       sources:
           - type: archive
-            url: 'https://github.com/git-lfs/git-lfs/releases/download/v2.5.2/git-lfs-linux-amd64-v2.5.2.tar.gz'
-            sha256: 624396e8994578ac38c3e5987889be56dba453c378c0675d56cffbc5b8972aa5
+            url: 'https://github.com/git-lfs/git-lfs/releases/download/v2.4.0/git-lfs-linux-amd64-2.4.0.tar.gz'
+            sha256: 56728ec9219c1a9339e1e6166f551459d74d300a29b51031851759cee4d7d710
       buildsystem: simple
       build-commands:
           - cp git-lfs /app/libexec/git-core/
@@ -103,7 +102,8 @@ modules:
 
     - name: sparkleshare
       sources:
-          - type: archive
-            url: 'https://github.com/hbons/SparkleShare/archive/3.28.tar.gz'
-            sha256: a52d6eab102411da5b6c772c8446c8ea95885c1f87de30dab9782011a449222f
+          - type: git
+            url: 'https://github.com/nbartos/SparkleShare'
+            branch: local
+            disable-fsckobjects: true
       buildsystem: meson
